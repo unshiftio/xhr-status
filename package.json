@@ -1,6 +1,6 @@
 {
   "name": "xhr-status",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Normalize XHR status code/text across various of environments",
   "main": "index.js",
   "scripts": {
