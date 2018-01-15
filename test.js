@@ -16,6 +16,7 @@ describe('xhr-status', function () {
     };
 
     assume(status(xhr).code).equals(204);
+    assume(status(xhr).error).equals(false);
     assume(status(xhr).text).equals('OK');
   });
 
@@ -27,6 +28,7 @@ describe('xhr-status', function () {
     };
 
     assume(status(xhr).code).equals(200);
+    assume(status(xhr).error).equals(false);
     assume(status(xhr).text).equals('OK');
   });
 
@@ -38,6 +40,7 @@ describe('xhr-status', function () {
     };
 
     assume(status(xhr).code).equals(0);
+    assume(status(xhr).error).equals(true);
     assume(status(xhr).text).equals('An unknown error occured');
   });
 
@@ -53,6 +56,7 @@ describe('xhr-status', function () {
       }
     });
 
+    assume(status(xhr).error).equals(true);
     assume(status(xhr).code).equals(404);
     assume(status(xhr).text).equals('');
   });

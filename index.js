@@ -19,6 +19,7 @@ module.exports = function status(xhr) {
   // @see http://stackoverflow.com/q/10046972
   //
   if (1233 === code) return {
+    error: false,
     text: 'OK',
     code: 204
   };
@@ -30,9 +31,11 @@ module.exports = function status(xhr) {
   // we're going to assume statusCode 200 for local files.
   //
   if (0 === code) return local ? {
+    error: false,
     text: 'OK',
     code: 200
   } : {
+    error: true,
     text: 'An unknown error occured',
     code: 0
   };
@@ -45,6 +48,7 @@ module.exports = function status(xhr) {
   catch (e) {}
 
   return {
+    error: code >= 400,
     text: text,
     code: code
   };
